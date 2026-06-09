@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ShumDev Custom CMS | Тайна вкуса</title>
+
+    <link rel="stylesheet" href="/site/css/admin.min.css" />
+  </head>
+
+  <body>
+    <main class="admin-login">
+      <section class="admin-login__card">
+        <div class="admin-login__decor"></div>
+
+        <div class="admin-login__brand">
+          <p class="admin-login__eyebrow">ShumDev custom CMS</p>
+
+          <h1 class="admin-login__title">
+            Тайна вкуса
+          </h1>
+
+          <p class="admin-login__text">
+            Управление букетами, заявками и контентом сайта.
+          </p>
+        </div>
+
+        <form class="admin-login__form" id="adminLoginForm" autocomplete="off">
+          <label class="admin-login__field">
+            <span>Логин</span>
+
+            <input
+              type="text"
+              name="login"
+              placeholder="Введите логин"
+              autocomplete="username"
+              required
+            />
+          </label>
+
+          <label class="admin-login__field">
+            <span>Пароль</span>
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Введите пароль"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <p class="admin-login__error" id="adminLoginError" hidden></p>
+
+          <button class="admin-login__button" type="submit">
+            Войти
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/site/js/admin/admin-auth.js?v=1"></script>
+  </body>
+</html>

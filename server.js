@@ -1,3 +1,4 @@
+const session = require('express-session');
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
@@ -10,9 +11,13 @@ dotenv.config();
 
 const productsRoutes = require("./routes/products.routes");
 const ordersRoutes = require("./routes/orders.routes");
+const adminRoutes = require('./routes/admin.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const isProduction = process.env.NODE_ENV === 'production';
+const adminPagesPath = path.join(__dirname, 'admin-pages');
 
 const mailTransporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -26,6 +31,25 @@ const mailTransporter = nodemailer.createTransport({
 
 app.set("trust proxy", 1);
 app.disable("x-powered-by");
+if (!process.env.SESSION_SECRET) {
+  throw new Error('SESSION_SECRET не задан в .env');
+}
+
+app.use(
+  session({
+    name: 'secretOfTaste.sid',
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: isProduction,
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  }),
+);
 
 app.use(
   helmet({
@@ -33,7 +57,7 @@ app.use(
   })
 );
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json({ limit: "50kb" }));
 app.use(express.urlencoded({ extended: true, limit: "50kb" }));
@@ -47,11 +71,54 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/site", express.static(path.join(__dirname, "site")));
+
+function requireAdminPage(req, res, next) {
+  if (req.session && req.session.isAdmin) {
+    return next();
+  }
+
+  return res.redirect('/admin/login.html');
+}
+
+function redirectLoggedAdmin(req, res, next) {
+  if (req.session && req.session.isAdmin) {
+    return res.redirect('/admin/products.html');
+  }
+
+  return next();
+}
+
+app.get('/admin', (req, res) => {
+  if (req.session && req.session.isAdmin) {
+    return res.redirect('/admin/products.html');
+  }
+
+  return res.redirect('/admin/login.html');
+});
+
+app.get('/admin/login.html', redirectLoggedAdmin, (req, res) => {
+  res.sendFile(path.join(adminPagesPath, 'login.html'));
+});
+
+app.get('/admin/products.html', requireAdminPage, (req, res) => {
+  res.sendFile(path.join(adminPagesPath, 'products.html'));
+});
+
+app.get('/admin/product-edit.html', requireAdminPage, (req, res) => {
+  res.sendFile(path.join(adminPagesPath, 'product-edit.html'));
+});
+
+app.get('/admin/orders.html', requireAdminPage, (req, res) => {
+  res.sendFile(path.join(adminPagesPath, 'orders.html'));
+});
 
 app.use("/api/products", productsRoutes);
 app.use("/api/orders", ordersRoutes);
+app.use('/api/admin', adminRoutes);
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Букеты | ShumDev Custom CMS</title>
+    <link rel="stylesheet" href="/site/css/admin.min.css" />
+  </head>
+
+  <body class="admin-body" data-admin-page="products">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <span>ShumDev Custom CMS</span>
+          <strong>Тайна вкуса</strong>
+        </div>
+
+        <nav class="admin-sidebar__nav">
+          <a href="/admin/products.html" data-admin-nav>Букеты</a>
+          <a href="/admin/orders.html" data-admin-nav>Заявки</a>
+        </nav>
+
+        <button class="admin-sidebar__logout" type="button" data-admin-logout>
+          Выйти
+        </button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="admin-topbar__eyebrow">Каталог</p>
+            <h1 class="admin-topbar__title">Букеты</h1>
+          </div>
+
+          <a class="admin-button" href="/admin/product-edit.html">
+            Добавить букет
+          </a>
+        </header>
+
+        <section class="admin-panel">
+          <div class="admin-panel__head">
+            <div>
+              <h2>Список букетов</h2>
+              <p id="productsCount">Загрузка...</p>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Букет</th>
+                  <th>Цена</th>
+                  <th>Ягод</th>
+                  <th>Статус</th>
+                  <th>Главная</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id="productsTableBody">
+                <tr>
+                  <td colspan="6">Загружаем букеты...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="admin-empty" id="productsEmpty" hidden>
+            Букеты пока не добавлены.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="/site/js/admin/admin.js?v=2"></script>
+  </body>
+</html>

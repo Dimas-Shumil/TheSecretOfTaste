@@ -3,24 +3,25 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-  "dev": "nodemon server.js",
-  "start": "node server.js",
-
-  "scss": "sass --watch site/scss/main.scss:site/css/main.min.css site/scss/cart.scss:site/css/cart.min.css site/scss/product.scss:site/css/product.min.css site/scss/catalog.scss:site/css/catalog.min.css site/scss/contacts.scss:site/css/contacts.min.css site/scss/admin.scss:site/css/admin.min.css --style=compressed",
-
-  "build:css": "sass site/scss/main.scss:site/css/main.min.css site/scss/cart.scss:site/css/cart.min.css site/scss/product.scss:site/css/product.min.css site/scss/catalog.scss:site/css/catalog.min.css site/scss/contacts.scss:site/css/contacts.min.css site/scss/admin.scss:site/css/admin.min.css --style=compressed",
-
-  "prisma:migrate": "prisma migrate dev",
-  "prisma:studio": "prisma studio"
-},
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "scss": "sass --watch site/scss/main.scss:site/css/main.min.css site/scss/cart.scss:site/css/cart.min.css site/scss/product.scss:site/css/product.min.css site/scss/catalog.scss:site/css/catalog.min.css site/scss/contacts.scss:site/css/contacts.min.css site/scss/admin.scss:site/css/admin.min.css --style=compressed",
+    "build:css": "sass site/scss/main.scss:site/css/main.min.css site/scss/cart.scss:site/css/cart.min.css site/scss/product.scss:site/css/product.min.css site/scss/catalog.scss:site/css/catalog.min.css site/scss/contacts.scss:site/css/contacts.min.css site/scss/admin.scss:site/css/admin.min.css --style=compressed",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
   "dependencies": {
     "@prisma/client": "^6.19.3",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-rate-limit": "^8.5.2",
+    "express-session": "^1.19.0",
     "helmet": "^8.2.0",
-    "nodemailer": "^8.0.10"
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.10",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.14",

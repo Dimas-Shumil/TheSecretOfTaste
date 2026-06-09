@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Букет | ShumDev Custom CMS</title>
+    <link rel="stylesheet" href="/site/css/admin.min.css" />
+  </head>
+
+  <body class="admin-body" data-admin-page="product-edit">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <span>ShumDev Custom CMS</span>
+          <strong>Тайна вкуса</strong>
+        </div>
+
+        <nav class="admin-sidebar__nav">
+          <a href="/admin/products.html" data-admin-nav>Букеты</a>
+          <a href="/admin/orders.html" data-admin-nav>Заявки</a>
+        </nav>
+
+        <button class="admin-sidebar__logout" type="button" data-admin-logout>
+          Выйти
+        </button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="admin-topbar__eyebrow">Каталог</p>
+            <h1 class="admin-topbar__title" id="productEditTitle">
+              Новый букет
+            </h1>
+          </div>
+
+          <a
+            class="admin-button admin-button--ghost"
+            href="/admin/products.html"
+          >
+            Назад
+          </a>
+        </header>
+
+        <section class="admin-panel">
+          <form class="admin-form" id="productForm">
+            <div class="admin-form__grid">
+              <label class="admin-field">
+                <span>Название</span>
+                <input type="text" name="title" required />
+              </label>
+
+              <label class="admin-field">
+                <span>Slug</span>
+                <input type="text" name="slug" required />
+              </label>
+
+              <label class="admin-field">
+                <span>Категория</span>
+                <input type="text" name="category" value="bouquets" />
+              </label>
+
+              <div class="admin-field admin-field--image">
+                <span>Фото букета</span>
+
+                <input type="hidden" name="image" id="productImagePath" />
+
+                <label class="admin-upload" for="productImageFile">
+                  <input
+                    type="file"
+                    id="productImageFile"
+                    accept="image/jpeg,image/png,image/webp"
+                  />
+
+                  <span class="admin-upload__button"> Выбрать фото </span>
+
+                  <small id="productImageName">
+                    JPG, PNG или WEBP до 5 МБ
+                  </small>
+                </label>
+
+                <div
+                  class="admin-image-preview"
+                  id="productImagePreview"
+                  hidden
+                >
+                  <img src="" alt="Превью букета" />
+                </div>
+              </div>
+
+              <label class="admin-field">
+                <span>Цена</span>
+                <input type="number" name="price" min="0" step="1" required />
+              </label>
+
+              <label class="admin-field">
+                <span>Старая цена</span>
+                <input type="number" name="oldPrice" min="0" step="1" />
+              </label>
+
+              <label class="admin-field">
+                <span>Количество ягод</span>
+                <input type="number" name="berriesCount" min="0" step="1" />
+              </label>
+
+              <label class="admin-field">
+                <span>Порядок сортировки</span>
+                <input type="number" name="sortOrder" step="1" value="100" />
+              </label>
+            </div>
+
+            <label class="admin-field">
+              <span>Краткое описание</span>
+              <textarea name="shortDescription" rows="3"></textarea>
+            </label>
+
+            <label class="admin-field">
+              <span>Полное описание</span>
+              <textarea name="description" rows="5"></textarea>
+            </label>
+
+            <label class="admin-field">
+              <span>Состав</span>
+              <textarea name="composition" rows="4"></textarea>
+            </label>
+
+            <div class="admin-checks">
+              <label>
+                <input type="checkbox" name="isActive" checked />
+                <span>Активен</span>
+              </label>
+
+              <label>
+                <input type="checkbox" name="isHit" />
+                <span>Хит</span>
+              </label>
+
+              <label>
+                <input type="checkbox" name="isSale" />
+                <span>Акция</span>
+              </label>
+
+              <label>
+                <input type="checkbox" name="showOnHome" />
+                <span>Показывать на главной</span>
+              </label>
+            </div>
+
+            <p class="admin-form__error" id="productFormError" hidden></p>
+
+            <div class="admin-form__actions">
+              <button class="admin-button" type="submit">Сохранить</button>
+
+              <a
+                class="admin-button admin-button--ghost"
+                href="/admin/products.html"
+              >
+                Отмена
+              </a>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="/site/js/admin/admin.js?v=2"></script>
+  </body>
+</html>

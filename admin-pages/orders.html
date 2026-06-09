@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заявки | ShumDev Custom CMS</title>
+    <link rel="stylesheet" href="/site/css/admin.min.css" />
+  </head>
+
+  <body class="admin-body" data-admin-page="orders">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <span>ShumDev Custom CMS</span>
+          <strong>Тайна вкуса</strong>
+        </div>
+
+        <nav class="admin-sidebar__nav">
+          <a href="/admin/products.html" data-admin-nav>Букеты</a>
+          <a href="/admin/orders.html" data-admin-nav>Заявки</a>
+        </nav>
+
+        <button class="admin-sidebar__logout" type="button" data-admin-logout>
+          Выйти
+        </button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="admin-topbar__eyebrow">Продажи</p>
+            <h1 class="admin-topbar__title">Заявки</h1>
+          </div>
+        </header>
+
+        <section class="admin-panel">
+          <div class="admin-panel__head">
+            <div>
+              <h2>Список заявок</h2>
+              <p id="ordersCount">Загрузка...</p>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Клиент</th>
+                  <th>Телефон</th>
+                  <th>Состав</th>
+                  <th>Сумма</th>
+                  <th>Статус</th>
+                  <th>Дата</th>
+                </tr>
+              </thead>
+
+              <tbody id="ordersTableBody">
+                <tr>
+                  <td colspan="7">Загружаем заявки...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="admin-empty" id="ordersEmpty" hidden>
+            Заявок пока нет.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="/site/js/admin/admin.js?v=2"></script>
+  </body>
+</html>
