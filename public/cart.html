@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/site/css/cart.min.css" />
+    <title>Корзина заказа — Тайна вкуса</title>
+
+    <meta
+      name="description"
+      content="Оформление заказа букетов из клубники в шоколаде. Проверьте выбранные товары и отправьте заявку."
+    />
+
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#2b1018" />
+
+    <link rel="canonical" href="https://thesecretoftaste.ru/cart.html" />
     <link rel="icon" href="/site/img/logo.png" type="image/png" />
+
+    <link rel="stylesheet" href="/site/css/cart.min.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +26,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <title>Корзина — Тайна вкуса</title>
   </head>
 
   <body>
@@ -327,7 +337,14 @@
         <span>Действие выполнено</span>
       </div>
     </div>
-
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CheckoutPage",
+        "name": "Корзина заказа",
+        "url": "https://thesecretoftaste.ru/cart.html"
+      }
+    </script>
     <script src="/site/js/cart.js"></script>
   </body>
 </html>
