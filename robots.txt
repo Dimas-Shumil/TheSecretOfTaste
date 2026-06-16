@@ -6,4 +6,4 @@ Disallow: /cart.html
 Disallow: /admin
 Disallow: /api
 
-Sitemap: https://thesecretoftaste.ru/sitemap.xml
+Sitemap: https://taina-vkusa.ru/sitemap.xml
