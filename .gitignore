@@ -32,3 +32,6 @@ dist/
 build/
 .cache/
 coverage/
+
+cookies.txt
+cookies.txt
